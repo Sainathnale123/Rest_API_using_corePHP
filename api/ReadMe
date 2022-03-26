@@ -1,0 +1,141 @@
+1. Created the Following File structure:
+   - api
+        -create.php
+        -delete.php
+        -read.php
+        -single_read.php
+        -update.php
+   - class
+        -employees.php
+   - config
+        -database.php
+
+----------------------------------------------------------------------------------
+2. Created the Database in phpmyadmin:
+
+-- phpMyAdmin SQL Dump
+-- version 5.1.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Mar 17, 2022 at 02:09 PM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 7.4.27
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `phpapidb`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `employee`
+--
+
+CREATE TABLE `employee` (
+  `id` int(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `age` int(11) NOT NULL,
+  `designation` varchar(255) NOT NULL,
+  `created` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `employee`
+--
+
+INSERT INTO `employee` (`id`, `name`, `email`, `age`, `designation`, `created`) VALUES
+(1, 'Sainath Nale', 'nalesainath@gmail.com', 24, 'singer', '2022-03-17 14:04:30'),
+(2, 'David Costa', 'sam.mraz1996@yahoo.com', 29, 'Apparel Patternmaker', '2013-03-03 01:20:10'),
+(3, 'Todd Martell', 'liliane_hirt@gmail.com', 36, 'Accountant', '2014-09-20 03:10:25'),
+(4, 'Adela Marion', 'michael2004@yahoo.com', 42, 'Shipping Manager', '2015-04-11 04:11:12'),
+(5, 'Matthew Popp', 'krystel_wol7@gmail.com', 48, 'Chief Sustainability Officer', '2016-01-04 05:20:30'),
+(6, 'Alan Wallin', 'neva_gutman10@hotmail.com', 37, 'Chemical Technician', '2017-01-10 06:40:10'),
+(7, 'Joyce Hinze', 'davonte.maye@yahoo.com', 44, 'Transportation Planner', '2017-05-02 02:20:30'),
+(8, 'Donna Andrews', 'joesph.quitz@yahoo.com', 49, 'Wind Energy Engineer', '2018-01-04 05:15:35'),
+(9, 'Andrew Best', 'jeramie_roh@hotmail.com', 51, 'Geneticist', '2019-01-02 02:20:30'),
+(10, 'Joel Ogle', 'summer_shanah@hotmail.com', 45, 'Space Sciences Teacher', '2020-02-01 06:22:50');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `employee`
+--
+ALTER TABLE `employee`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `employee`
+--
+ALTER TABLE `employee`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+----------------------------------------------------------------------------------
+
+3. Created class/employees.php file and define the CRUD methods inside the Employee class.
+
+The Employee class manages the CRUD operation
+
+__construct() — Makes the database connection ready.
+getEmployees() — Get all records.
+getSingleEmployee() — Get single records.
+createEmployee() — Create record.
+updateEmployee() — Update record.
+deleteEmployee() — Fetch single record.
+----------------------------------------------------------------------------------
+
+4. Fetch MySQL Table Records using PHP REST API Endpoint
+- PHP API Endpoint using Postman
+- http://localhost:8080/api/read.php
+- Screenshot : 
+- https://prnt.sc/AHt4jig4GLaq
+----------------------------------------------------------------------------------
+
+5. Get Single Row from MySQL Database via PHP API
+- fetch single column from MySQL database’s table
+- localhost:8080/api/single_read.php/?id=2
+- Screenshot : 
+- https://prnt.sc/ptuHv7zSD3NB
+----------------------------------------------------------------------------------
+
+6. Insert or Add Single Record in MySQL Table
+- create PHP REST API Endpoints to insert or add a single record in MySQL table
+- http://localhost:8080/api/create.php
+- Screenshot : 
+- https://prnt.sc/cfD32xavZwoC
+----------------------------------------------------------------------------------
+
+7. Edit/Update MySQL Table using PHP 8 API
+- http://localhost:8080/api/update.php
+- Screenshot :
+- https://prnt.sc/-wfBeHeC1Ey3
+----------------------------------------------------------------------------------
+
+8. Remove/Delete Single Mysql Record using PHP API
+- localhost:8080/api/delete.php
+- Screenshot :
+- https://prnt.sc/5M6COLbqHvW4
+----------------------------------------------------------------------------------
+
+Learned how to create simple CRUD RESTful API with PHP & MySQL , we also explored about the useful PHP methods such as htmlspecialchars(), bindParam(), execute(), PHP PDO and json_encode().
